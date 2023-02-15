@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class moving : MonoBehaviour
 {
@@ -25,5 +26,13 @@ public class moving : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Colision con " + collision.collider.name);
+        this.GetComponent<Animator>().SetFloat("velocidad", 4);
+        this.GetComponent<Animator>().SetInteger("estado", 1);
+    }
+
+    public void setEstado(int est)
+    {
+        this.GetComponent<Animator>().SetInteger("estado", est);
+
     }
 }
